@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hopbili | Data, Marketing & Operations Consulting</title>
+  <meta name="description" content="Hopbili helps businesses grow with data analytics, marketing insights, automation, and operational systems." />
+  <meta property="og:title" content="Hopbili | Data, Marketing & Operations Consulting" />
+  <meta property="og:description" content="Hopbili helps businesses grow with data analytics, marketing insights, automation, and operational systems." />
+  <meta property="og:url" content="https://hopbili.ca" />
+  <link rel="canonical" href="https://hopbili.ca" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1f3c;
+      --teal: #0a7c6e;
+      --teal-light: #0d9e8c;
+      --teal-faint: #e8f6f4;
+      --sand: #f7f4ef;
+      --white: #ffffff;
+      --gray-50: #f9f9f8;
+      --gray-100: #f0eeeb;
+      --gray-200: #e0ddd8;
+      --gray-400: #9a9590;
+      --gray-600: #5c5955;
+      --gray-800: #2c2a28;
+      --text: #1a1916;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow: 0 2px 16px rgba(13,31,60,.07);
+      --shadow-md: 0 6px 32px rgba(13,31,60,.10);
+      --shadow-lg: 0 16px 56px rgba(13,31,60,.14);
+      --transition: 0.22s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILS ── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    .section-sm { padding: 72px 0; }
+    .label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-faint);
+      border: 1px solid rgba(10,124,110,.15);
+      padding: 5px 14px;
+      border-radius: 40px;
+      margin-bottom: 20px;
+    }
+    h1,h2,h3,h4 { font-family: 'Fraunces', serif; line-height: 1.15; }
+    h1 { font-size: clamp(2.6rem, 5.5vw, 4rem); font-weight: 500; letter-spacing: -.01em; }
+    h2 { font-size: clamp(2rem, 3.5vw, 2.9rem); font-weight: 500; letter-spacing: -.01em; }
+    h3 { font-size: 1.25rem; font-weight: 500; }
+    p { color: var(--gray-600); line-height: 1.75; }
+    a { color: inherit; text-decoration: none; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+      box-shadow: 0 2px 12px rgba(10,124,110,.28);
+    }
+    .btn-primary:hover { background: var(--teal-light); box-shadow: 0 4px 20px rgba(10,124,110,.38); transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--gray-200);
+    }
+    .btn-ghost:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-faint); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--gray-100);
+      transition: var(--transition);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -.02em;
+    }
+    .logo span { color: var(--teal); }
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta { margin-left: 16px; }
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--navy); border-radius: 2px;
+      transition: var(--transition);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0; top: 68px;
+      background: var(--white);
+      padding: 32px 24px;
+      z-index: 99;
+      flex-direction: column; gap: 8px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 1.1rem; font-weight: 500;
+      color: var(--navy); padding: 12px 0;
+      border-bottom: 1px solid var(--gray-100);
+      display: block;
+    }
+    .mobile-menu .btn { margin-top: 16px; justify-content: center; }
+
+    /* ── HERO ── */
+    #home {
+      background: var(--white);
+      padding: 110px 0 90px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 70% 60% at 70% 30%, rgba(10,124,110,.065) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(13,31,60,.04) 0%, transparent 60%);
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .hero-content { position: relative; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block; width: 24px; height: 2px;
+      background: var(--teal); border-radius: 2px;
+    }
+    .hero-content h1 {
+      color: var(--navy);
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+    .hero-content h1 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      max-width: 480px;
+      margin-bottom: 36px;
+      color: var(--gray-600);
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-top: 56px;
+    }
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: var(--shadow);
+    }
+    .stat-card .num {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--navy); line-height: 1;
+    }
+    .stat-card .num span { color: var(--teal); }
+    .stat-card p { font-size: .85rem; margin-top: 4px; color: var(--gray-400); }
+    .hero-visual {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-card-stack { position: relative; width: 100%; max-width: 400px; }
+    .hcard {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-200);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+    }
+    .hcard-main {
+      position: relative; z-index: 2;
+      margin-left: 24px;
+    }
+    .hcard-back {
+      position: absolute; top: -18px; left: 0; right: 32px;
+      background: var(--teal-faint);
+      border-color: rgba(10,124,110,.2);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      z-index: 1;
+    }
+    .hcard-label {
+      font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 12px;
+    }
+    .hcard-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem; font-weight: 500;
+      color: var(--navy); margin-bottom: 16px;
+    }
+    .metric-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: .88rem;
+    }
+    .metric-row:last-child { border-bottom: none; }
+    .metric-val {
+      font-weight: 700; color: var(--teal); font-size: .95rem;
+    }
+    .metric-val.up::before { content: '↑ '; }
+    .floating-badge {
+      position: absolute;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 40px;
+      padding: 8px 16px;
+      font-size: .78rem; font-weight: 600;
+      display: flex; align-items: center; gap: 6px;
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .badge-1 { bottom: -16px; left: -8px; }
+    .badge-2 { top: 24px; right: -12px; animation-delay: 1.5s; background: var(--teal); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #22d3a4; display: inline-block; }
+
+    /* ── CREDIBILITY ── */
+    #credibility {
+      background: var(--sand);
+      padding: 72px 0;
+    }
+    .cred-header { text-align: center; margin-bottom: 48px; }
+    .cred-header h2 { color: var(--navy); }
+    .cred-cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .cred-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      border: 1px solid var(--gray-200);
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    .cred-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--teal); }
+    .cred-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--teal-faint);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+      font-size: 1.3rem;
+    }
+    .cred-card h3 { font-size: .95rem; color: var(--navy); line-height: 1.3; }
+
+    /* ── PROBLEMS ── */
+    #problems { background: var(--navy); }
+    #problems .label { background: rgba(255,255,255,.1); color: #7ecfca; border-color: rgba(255,255,255,.15); }
+    #problems h2 { color: var(--white); }
+    .problems-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 32px; margin-top: 56px;
+    }
+    .problem-item {
+      display: flex; gap: 16px;
+      padding: 24px 28px;
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: var(--transition);
+    }
+    .problem-item:hover { background: rgba(255,255,255,.08); border-color: rgba(10,124,110,.4); }
+    .problem-icon {
+      flex-shrink: 0;
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(10,124,110,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .problem-item h3 { color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .problem-item p { font-size: .88rem; color: rgba(255,255,255,.5); }
+    .problems-note {
+      grid-column: 1/-1;
+      text-align: center;
+      color: rgba(255,255,255,.55);
+      font-size: .95rem;
+      padding-top: 8px;
+    }
+    .problems-note strong { color: var(--teal-light); }
+
+    /* ── SERVICES ── */
+    #services { background: var(--white); }
+    .services-header { text-align: center; margin-bottom: 64px; }
+    .services-header h2 { color: var(--navy); }
+    .services-header p { max-width: 560px; margin: 16px auto 0; }
+    .services-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .service-card {
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-200);
+      padding: 36px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--teal);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .service-card:hover { box-shadow: var(--shadow-lg); border-color: transparent; transform: translateY(-4px); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--teal-faint);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .service-card h3 { color: var(--navy); margin-bottom: 16px; }
+    .service-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .service-list li {
+      font-size: .9rem; color: var(--gray-600);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .service-list li::before {
+      content: '';
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--teal); flex-shrink: 0;
+    }
+
+    /* ── ADVANTAGE ── */
+    #advantage { background: var(--sand); }
+    .adv-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .adv-content h2 { color: var(--navy); margin-bottom: 20px; }
+    .adv-content p { margin-bottom: 32px; font-size: 1.05rem; }
+    .adv-pillars {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .pillar {
+      display: flex; align-items: center; gap: 16px;
+      padding: 18px 22px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .pillar:hover { border-color: var(--teal); }
+    .pillar-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+    .pillar strong { font-size: .95rem; color: var(--navy); }
+    .adv-visual {
+      position: relative;
+    }
+    .adv-box {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      color: var(--white);
+    }
+    .adv-box-label { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 16px; }
+    .adv-box h3 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 20px; color: var(--white); }
+    .adv-checklist { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .adv-checklist li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: .93rem; color: rgba(255,255,255,.75);
+    }
+    .check {
+      flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+      background: var(--teal); display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; color: var(--white); margin-top: 1px;
+    }
+
+    /* ── OUTCOMES ── */
+    #outcomes { background: var(--white); }
+    .outcomes-header { text-align: center; margin-bottom: 56px; }
+    .outcomes-header h2 { color: var(--navy); }
+    .outcomes-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .outcome-card {
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      border: 1px solid var(--gray-200);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .outcome-card:hover { box-shadow: var(--shadow-md); border-color: var(--teal); }
+    .outcome-num {
+      font-family: 'Fraunces', serif;
+      font-size: 3.5rem; font-weight: 700;
+      color: var(--gray-100);
+      position: absolute; top: 20px; right: 28px;
+      line-height: 1;
+    }
+    .outcome-icon { font-size: 1.6rem; margin-bottom: 16px; }
+    .outcome-card h3 { color: var(--navy); margin-bottom: 10px; font-size: 1.05rem; }
+    .outcome-card p { font-size: .9rem; }
+
+    /* ── TOOLS ── */
+    #tools { background: var(--sand); padding: 72px 0; }
+    .tools-header { text-align: center; margin-bottom: 44px; }
+    .tools-header h2 { color: var(--navy); font-size: 1.8rem; }
+    .tools-grid {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
+    }
+    .tool-badge {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 12px 22px;
+      font-size: .9rem; font-weight: 600;
+      color: var(--navy);
+      display: flex; align-items: center; gap: 8px;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    .tool-badge:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-faint); transform: translateY(-2px); }
+    .tool-badge .ticon { font-size: 1.1rem; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-box {
+      background: var(--teal);
+      border-radius: var(--radius-lg);
+      padding: 52px 40px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-box::after {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.07);
+    }
+    .about-initial {
+      font-family: 'Fraunces', serif;
+      font-size: 5rem; font-weight: 700;
+      color: rgba(255,255,255,.15);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .about-tagline {
+      font-size: 1.15rem;
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.4;
+    }
+    .about-meta {
+      margin-top: 28px;
+      font-size: .85rem; color: rgba(255,255,255,.7);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .about-content h2 { color: var(--navy); margin-bottom: 20px; }
+    .about-content p { margin-bottom: 20px; font-size: 1rem; }
+    .about-values {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-top: 32px;
+    }
+    .value-chip {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px;
+      background: var(--sand);
+      border-radius: 8px;
+      font-size: .88rem; font-weight: 600; color: var(--navy);
+    }
+    .value-chip .v-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--sand); }
+    .contact-inner {
+      display: grid; grid-template-columns: 1fr 1.5fr;
+      gap: 72px; align-items: start;
+    }
+    .contact-info h2 { color: var(--navy); margin-bottom: 20px; }
+    .contact-info p { font-size: 1rem; margin-bottom: 36px; }
+    .contact-details { display: flex; flex-direction: column; gap: 16px; }
+    .contact-detail {
+      display: flex; align-items: center; gap: 14px;
+      font-size: .9rem; color: var(--gray-600);
+    }
+    .contact-detail-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--teal-faint);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-detail strong { display: block; color: var(--navy); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+    .contact-detail a { color: var(--teal); font-weight: 500; }
+    .contact-detail a:hover { text-decoration: underline; }
+    .contact-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-md);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
+    .form-group label {
+      font-size: .82rem; font-weight: 600; color: var(--navy); letter-spacing: .04em;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      color: var(--text);
+      background: var(--white);
+      transition: var(--transition);
+      outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(10,124,110,.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; padding: 15px; font-size: 1rem; justify-content: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.6);
+      padding: 56px 0 32px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 64px; margin-bottom: 48px;
+    }
+    .footer-brand .logo { color: var(--white); display: block; margin-bottom: 12px; }
+    .footer-brand p { font-size: .9rem; max-width: 280px; }
+    .footer-col h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: .9rem;
+      color: rgba(255,255,255,.6);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--teal-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom p { font-size: .85rem; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .cred-cards { grid-template-columns: repeat(3, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1/-1; }
+    }
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .adv-inner { grid-template-columns: 1fr; gap: 48px; }
+      .adv-visual { order: -1; }
+      .outcomes-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
+      .problems-grid { grid-template-columns: 1fr; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 72px 0; }
+      .cred-cards { grid-template-columns: 1fr 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .contact-form { padding: 28px 20px; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .about-values { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">Hop<span>bili</span></a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary nav-cta" style="padding:10px 22px;font-size:.88rem;">Book a Call</a>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="#home" class="mobile-link">Home</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="#contact" class="btn btn-primary">Book a Strategy Call</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="home" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-grid">
+    <div class="hero-content reveal">
+      <div class="hero-eyebrow">Founder-Led Consulting</div>
+      <h1>Build <em>Smarter</em><br>Business Systems</h1>
+      <p>Hopbili helps businesses grow using data analytics, marketing insights, automation, and operational systems.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">Book a Strategy Call &rarr;</a>
+        <a href="#services" class="btn btn-ghost">Explore Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="num">4<span>+</span></div>
+          <p>Consulting disciplines under one roof</p>
+        </div>
+        <div class="stat-card">
+          <div class="num">Real<span>.</span></div>
+          <p>Systems built, not just slide decks</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card-stack">
+        <div class="hcard hcard-back">
+          <div class="hcard-label">Marketing Dashboard</div>
+          <div class="metric-row"><span>Google Ads ROAS</span><span class="metric-val up">4.2x</span></div>
+          <div class="metric-row"><span>CAC trend</span><span class="metric-val">↓ 18%</span></div>
+        </div>
+        <div class="hcard hcard-main">
+          <div class="hcard-label">Business Intelligence Report</div>
+          <div class="hcard-title">Weekly KPI Summary</div>
+          <div class="metric-row"><span>Revenue vs Target</span><span class="metric-val up">+12%</span></div>
+          <div class="metric-row"><span>Fulfilment Rate</span><span class="metric-val">97.3%</span></div>
+          <div class="metric-row"><span>Avg. Order Value</span><span class="metric-val up">+8.4%</span></div>
+          <div class="metric-row"><span>Report Generation</span><span class="metric-val">Automated</span></div>
+        </div>
+        <div class="floating-badge badge-1"><span class="dot"></span> Live Dashboard Active</div>
+        <div class="floating-badge badge-2">✦ Automated Reporting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CREDIBILITY ── -->
+<section id="credibility" aria-label="Credibility">
+  <div class="container">
+    <div class="cred-header reveal">
+      <div class="label">Real Experience</div>
+      <h2>Real Experience Building<br>Data &amp; Growth Systems</h2>
+    </div>
+    <div class="cred-cards">
+      <div class="cred-card reveal">
+        <div class="cred-icon">📊</div>
+        <h3>Data Analytics &amp; Reporting</h3>
+      </div>
+      <div class="cred-card reveal">
+        <div class="cred-icon">🏢</div>
+        <h3>Enterprise Reporting Systems</h3>
+      </div>
+      <div class="cred-card reveal">
+        <div class="cred-icon">🛒</div>
+        <h3>E-commerce Operations</h3>
+      </div>
+      <div class="cred-card reveal">
+        <div class="cred-icon">📈</div>
+        <h3>Marketing Performance</h3>
+      </div>
+      <div class="cred-card reveal">
+        <div class="cred-icon">⚙️</div>
+        <h3>Automation Systems</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEMS ── -->
+<section id="problems" class="section" aria-label="Common business problems">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">The Challenge</div>
+      <h2>Most Businesses Struggle With<br>Data and Operational Complexity</h2>
+    </div>
+    <div class="problems-grid">
+      <div class="problem-item reveal">
+        <div class="problem-icon">📉</div>
+        <div>
+          <h3>Data Without Insight</h3>
+          <p>Marketing campaigns generate data but not actionable insights that drive decisions.</p>
+        </div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-icon">⏳</div>
+        <div>
+          <h3>Manual Reporting Burden</h3>
+          <p>Reports require hours of manual work each week, pulling teams away from real work.</p>
+        </div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-icon">🎯</div>
+        <div>
+          <h3>Decisions Without Metrics</h3>
+          <p>Business decisions are made without clear metrics, KPIs, or reliable data sources.</p>
+        </div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-icon">🔄</div>
+        <div>
+          <h3>E-commerce Complexity</h3>
+          <p>Operations become tangled as companies grow across channels and fulfillment partners.</p>
+        </div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-icon">📋</div>
+        <div>
+          <h3>No Reliable Dashboards</h3>
+          <p>Teams lack consistent dashboards and KPI views to monitor performance with confidence.</p>
+        </div>
+      </div>
+      <div class="problems-note reveal">
+        <strong>Sound familiar?</strong> These are the exact problems Hopbili is built to solve.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services" class="section" aria-label="Services">
+  <div class="container">
+    <div class="services-header reveal">
+      <div class="label">What We Do</div>
+      <h2>How Hopbili Helps<br>Businesses Grow</h2>
+      <p>Practical systems and analytics that create real improvement — not just recommendations.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon">📊</div>
+        <h3>Data &amp; Business Intelligence</h3>
+        <ul class="service-list">
+          <li>KPI frameworks and metric design</li>
+          <li>SQL data analysis and queries</li>
+          <li>Power BI dashboards</li>
+          <li>Automated reporting systems</li>
+          <li>Business performance tracking</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">📢</div>
+        <h3>Marketing Analytics</h3>
+        <ul class="service-list">
+          <li>Google Ads performance analysis</li>
+          <li>Campaign performance analysis</li>
+          <li>Conversion funnel insights</li>
+          <li>Customer acquisition cost analysis</li>
+          <li>Marketing dashboards</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🛒</div>
+        <h3>E-commerce Operations</h3>
+        <ul class="service-list">
+          <li>Shopify operations</li>
+          <li>Amazon operations</li>
+          <li>Fulfillment and logistics strategy</li>
+          <li>Inventory and workflow optimization</li>
+          <li>Product launch support</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">⚙️</div>
+        <h3>Automation &amp; Systems</h3>
+        <ul class="service-list">
+          <li>Reporting automation</li>
+          <li>CRM workflow automation</li>
+          <li>Operational system design</li>
+          <li>Marketing automation</li>
+          <li>Data pipeline planning</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ADVANTAGE ── -->
+<section id="advantage" class="section" aria-label="Unique advantage">
+  <div class="container adv-inner">
+    <div class="adv-content reveal">
+      <div class="label">Why Hopbili</div>
+      <h2>Beyond Consulting —<br>Real Systems</h2>
+      <p>Hopbili does not just deliver slide decks. We help design and build practical systems that businesses actually use — dashboards, automated reports, marketing analytics, and operational workflows.</p>
+      <div class="adv-pillars">
+        <div class="pillar"><span class="pillar-dot"></span><strong>Strategy — Clear direction before any implementation begins</strong></div>
+        <div class="pillar"><span class="pillar-dot"></span><strong>Technical Implementation — Actual systems and dashboards built and delivered</strong></div>
+        <div class="pillar"><span class="pillar-dot"></span><strong>Operational Experience — Grounded in how real businesses run day to day</strong></div>
+      </div>
+    </div>
+
+    <div class="adv-visual reveal">
+      <div class="adv-box">
+        <div class="adv-box-label">What You Get</div>
+        <h3>Systems That Actually Work</h3>
+        <ul class="adv-checklist">
+          <li><span class="check">✓</span>Dashboards your team will open every morning</li>
+          <li><span class="check">✓</span>Reports that generate themselves</li>
+          <li><span class="check">✓</span>Marketing visibility you act on</li>
+          <li><span class="check">✓</span>Operations that scale without chaos</li>
+          <li><span class="check">✓</span>Decision-making grounded in real data</li>
+          <li><span class="check">✓</span>Founder-level accountability on every engagement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OUTCOMES ── -->
+<section id="outcomes" class="section" aria-label="Business outcomes">
+  <div class="container">
+    <div class="outcomes-header reveal">
+      <div class="label">Business Impact</div>
+      <h2>Examples of Business<br>Improvements</h2>
+    </div>
+    <div class="outcomes-grid">
+      <div class="outcome-card reveal">
+        <div class="outcome-num">01</div>
+        <div class="outcome-icon">⚡</div>
+        <h3>Automated Reporting</h3>
+        <p>Manual reporting replaced with automated pipelines — freeing hours of team time each week and eliminating data errors.</p>
+      </div>
+      <div class="outcome-card reveal">
+        <div class="outcome-num">02</div>
+        <div class="outcome-icon">📡</div>
+        <h3>Marketing Visibility</h3>
+        <p>Analytics dashboards built that surface campaign performance clearly — enabling smarter budget allocation and faster pivots.</p>
+      </div>
+      <div class="outcome-card reveal">
+        <div class="outcome-num">03</div>
+        <div class="outcome-icon">🧭</div>
+        <h3>Faster Decision-Making</h3>
+        <p>Operational dashboards designed to surface the right KPIs at the right time — reducing reliance on gut instinct.</p>
+      </div>
+      <div class="outcome-card reveal">
+        <div class="outcome-num">04</div>
+        <div class="outcome-icon">🔧</div>
+        <h3>Streamlined E-commerce</h3>
+        <p>Workflows and systems redesigned to reduce overhead, improve fulfillment, and scale operations without proportional headcount.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TOOLS ── -->
+<section id="tools" aria-label="Tools and technologies">
+  <div class="container">
+    <div class="tools-header reveal">
+      <div class="label">Tools &amp; Technology</div>
+      <h2>The Stack We Work With</h2>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-badge reveal"><span class="ticon">🗄️</span> SQL</div>
+      <div class="tool-badge reveal"><span class="ticon">📊</span> Power BI</div>
+      <div class="tool-badge reveal"><span class="ticon">🐍</span> Python</div>
+      <div class="tool-badge reveal"><span class="ticon">☁️</span> Salesforce</div>
+      <div class="tool-badge reveal"><span class="ticon">🛍️</span> Shopify</div>
+      <div class="tool-badge reveal"><span class="ticon">📣</span> Google Ads</div>
+      <div class="tool-badge reveal"><span class="ticon">📗</span> Excel</div>
+      <div class="tool-badge reveal"><span class="ticon">📈</span> Google Analytics</div>
+      <div class="tool-badge reveal"><span class="ticon">⚙️</span> Automation Platforms</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about" class="section" aria-label="About Hopbili">
+  <div class="container about-inner">
+    <div class="about-visual reveal">
+      <div class="about-box">
+        <div class="about-initial">H.</div>
+        <div class="about-tagline">"Practical systems that businesses actually use."</div>
+        <div class="about-meta">
+          <span>✦</span> Hopbili · hopbili.ca
+        </div>
+      </div>
+    </div>
+    <div class="about-content reveal">
+      <div class="label">About</div>
+      <h2>About Hopbili</h2>
+      <p>Hopbili was founded by a data analyst and digital business operator with hands-on experience building analytics systems, marketing dashboards, and operational workflows for real businesses.</p>
+      <p>The focus is practical: helping organizations build better data-driven systems that improve marketing performance, streamline operations, and support smarter decision-making.</p>
+      <div class="about-values">
+        <div class="value-chip"><span class="v-dot"></span>Data-Driven</div>
+        <div class="value-chip"><span class="v-dot"></span>Practical Focus</div>
+        <div class="value-chip"><span class="v-dot"></span>Founder-Led</div>
+        <div class="value-chip"><span class="v-dot"></span>Operationally Grounded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="section" aria-label="Contact Hopbili">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <div class="label">Get In Touch</div>
+        <h2>Let's Improve Your<br>Business Systems</h2>
+        <p>Ready to build something that works? Book a strategy call or send a message and we'll get back to you promptly.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:info@hopbili.ca">info@hopbili.ca</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🌐</div>
+            <div>
+              <strong>Website</strong>
+              <a href="https://hopbili.ca">hopbili.ca</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">💼</div>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="#" aria-label="Hopbili LinkedIn profile">linkedin.com/company/hopbili</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="company">Company / Business</label>
+            <input type="text" id="company" name="company" placeholder="Your Company" />
+          </div>
+          <div class="form-group">
+            <label for="message">How Can We Help?</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your current challenges — reporting, analytics, operations, marketing..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Send Message &rarr;</button>
+          <p id="form-status" style="margin-top:12px;font-size:.88rem;text-align:center;"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer aria-label="Footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="logo">Hop<span>bili</span></a>
+        <p>Data-driven consulting for businesses that want smarter systems.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+          <li><a href="mailto:info@hopbili.ca">info@hopbili.ca</a></li>
+          <li><a href="https://hopbili.ca">hopbili.ca</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Hopbili. All rights reserved.</p>
+      <p>Built for founders who want real systems.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Mobile menu ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.mobile-link, .mobile-menu .btn').forEach(el => {
+    el.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ── Scroll reveal ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${(i % 4) * 60}ms`;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ── Nav scroll effect ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.style.boxShadow = window.scrollY > 20 ? '0 2px 24px rgba(13,31,60,.1)' : 'none';
+  });
+
+  // ── Form ──
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('form-status');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      const action = form.getAttribute('action');
+      if (action.includes('YOUR_FORM_ID')) {
+        e.preventDefault();
+        // Fallback to mailto
+        const name = form.name.value;
+        const email = form.email.value;
+        const company = form.company.value;
+        const message = form.message.value;
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`);
+        window.location.href = `mailto:info@hopbili.ca?subject=Consulting Inquiry from ${name}&body=${body}`;
+        status.textContent = 'Opening your email client...';
+        status.style.color = 'var(--teal)';
+        return;
+      }
+      // Formspree handling
+      e.preventDefault();
+      status.textContent = 'Sending...';
+      try {
+        const res = await fetch(action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          status.textContent = "✓ Message sent! We'll be in touch soon.";
+          status.style.color = 'var(--teal)';
+          form.reset();
+        } else {
+          status.textContent = 'Something went wrong. Please email us directly at info@hopbili.ca';
+          status.style.color = '#c0392b';
+        }
+      } catch {
+        status.textContent = 'Connection error. Please email info@hopbili.ca directly.';
+        status.style.color = '#c0392b';
+      }
+    });
+  }
+</script>
+</body>
+</html>
