@@ -1142,42 +1142,22 @@
   const form = document.getElementById('contactForm');
   const status = document.getElementById('form-status');
   if (form) {
-    form.addEventListener('submit', async (e) => {
-      const action = form.getAttribute('action');
-      if (action.includes('YOUR_FORM_ID')) {
-        e.preventDefault();
-        // Fallback to mailto
-        const name = form.name.value;
-        const email = form.email.value;
-        const company = form.company.value;
-        const message = form.message.value;
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`);
-        window.location.href = `mailto:info@hopbili.ca?subject=Consulting Inquiry from ${name}&body=${body}`;
-        status.textContent = 'Opening your email client...';
-        status.style.color = 'var(--teal)';
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const company = document.getElementById('company').value;
+      const message = document.getElementById('message').value;
+      if (!name || !email || !message) {
+        status.textContent = 'Please fill in all required fields.';
+        status.style.color = '#c0392b';
         return;
       }
-      // Formspree handling
-      e.preventDefault();
-      status.textContent = 'Sending...';
-      try {
-        const res = await fetch(action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' }
-        });
-        if (res.ok) {
-          status.textContent = "✓ Message sent! We'll be in touch soon.";
-          status.style.color = 'var(--teal)';
-          form.reset();
-        } else {
-          status.textContent = 'Something went wrong. Please email us directly at info@hopbili.ca';
-          status.style.color = '#c0392b';
-        }
-      } catch {
-        status.textContent = 'Connection error. Please email info@hopbili.ca directly.';
-        status.style.color = '#c0392b';
-      }
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\nMessage:\n${message}`);
+      const subject = encodeURIComponent(`Consulting Inquiry from ${name}`);
+      window.location.href = `mailto:info@hopbili.ca?subject=${subject}&body=${body}`;
+      status.textContent = '✓ Opening your email client...';
+      status.style.color = 'var(--teal)';
     });
   }
 </script>
