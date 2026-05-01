@@ -576,18 +576,33 @@
     .contact-form {
       background: var(--white);
       border-radius: var(--radius-lg);
-      padding: 12px;
+      padding: 44px 40px;
       border: 1px solid var(--gray-200);
       box-shadow: var(--shadow-md);
-      overflow: hidden;
     }
-    .contact-form iframe {
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
+    .form-group label {
+      font-size: .82rem; font-weight: 600; color: var(--navy); letter-spacing: .04em;
+    }
+    .form-group input, .form-group textarea, .form-group select {
       width: 100%;
-      min-height: 620px;
-      border: none;
-      border-radius: 10px;
-      display: block;
+      padding: 12px 16px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      color: var(--text);
+      background: var(--white);
+      transition: var(--transition);
+      outline: none;
     }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(10,124,110,.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; padding: 15px; font-size: 1rem; justify-content: center; }
 
     /* ── FOOTER ── */
     footer {
@@ -1030,12 +1045,28 @@
       </div>
 
       <div class="contact-form reveal">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdEQBO7pMTZUwLjK50icXlHFeHAHHtNIxqAD9_SquZPNHDJaA/viewform?embedded=true"
-          title="Hopbili Contact Form"
-          loading="lazy">
-          Loading form…
-        </iframe>
+        <form action="mailto:info@hopbili.ca" method="POST" novalidate id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="company">Company / Business</label>
+            <input type="text" id="company" name="company" placeholder="Your Company" />
+          </div>
+          <div class="form-group">
+            <label for="message">How Can We Help?</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your current challenges — reporting, analytics, operations, marketing..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Send Message &rarr;</button>
+          <p id="form-status" style="margin-top:12px;font-size:.88rem;text-align:center;"></p>
+        </form>
       </div>
     </div>
   </div>
