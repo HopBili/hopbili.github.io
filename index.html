@@ -116,6 +116,14 @@
       font-weight: 700;
       color: var(--navy);
       letter-spacing: -.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo img {
+      height: 32px;
+      width: 32px;
+      display: block;
     }
     .logo span { color: var(--teal); }
     .nav-links {
@@ -283,6 +291,22 @@
     }
     .badge-1 { bottom: 8px; left: 8px; }
     .badge-2 { top: 24px; right: 8px; animation-delay: 1.5s; background: var(--teal); }
+    .badge-logo {
+      width: 16px;
+      height: 16px;
+      filter: brightness(0) invert(1);
+      vertical-align: middle;
+    }
+    .hero-watermark {
+      position: absolute;
+      bottom: -20px;
+      right: -30px;
+      width: 140px;
+      height: 140px;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
     .dot { width: 7px; height: 7px; border-radius: 50%; background: #22d3a4; display: inline-block; }
 
     /* ── CREDIBILITY ── */
@@ -518,12 +542,15 @@
       border-radius: 50%;
       background: rgba(255,255,255,.07);
     }
-    .about-initial {
-      font-family: 'Fraunces', serif;
-      font-size: 5rem; font-weight: 700;
-      color: rgba(255,255,255,.15);
-      line-height: 1;
-      margin-bottom: 16px;
+    .about-logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      display: block;
+      box-shadow: 0 8px 32px rgba(0,0,0,.15);
+      position: relative;
+      z-index: 1;
     }
     .about-tagline {
       font-size: 1.15rem;
@@ -616,7 +643,12 @@
       display: grid; grid-template-columns: 2fr 1fr 1fr;
       gap: 64px; margin-bottom: 48px;
     }
-    .footer-brand .logo { color: var(--white); display: block; margin-bottom: 12px; }
+    .footer-brand .logo { color: var(--white); display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .footer-brand .logo img {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 3px;
+    }
     .footer-brand p { font-size: .9rem; max-width: 280px; }
     .footer-col h4 {
       font-family: 'DM Sans', sans-serif;
@@ -685,7 +717,7 @@
 <!-- ── NAVIGATION ── -->
 <nav id="navbar" role="navigation" aria-label="Main navigation">
   <div class="container nav-inner">
-    <a href="#home" class="logo">Hop<span>bili</span></a>
+    <a href="#home" class="logo"><img src="hopbili-icon-mark.svg" alt="Hopbili logo"/>Hop<span>bili</span></a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#services">Services</a></li>
@@ -748,7 +780,8 @@
           <div class="metric-row"><span>Report Generation</span><span class="metric-val">Automated</span></div>
         </div>
         <div class="floating-badge badge-1"><span class="dot"></span> Live Dashboard Active</div>
-        <div class="floating-badge badge-2">✦ Automated Reporting</div>
+        <div class="floating-badge badge-2"><img src="hopbili-icon-mark.svg" alt="" class="badge-logo"/> AI-Powered Insights</div>
+        <img src="hopbili-icon-mark.svg" alt="" class="hero-watermark" aria-hidden="true"/>
       </div>
     </div>
   </div>
@@ -991,7 +1024,7 @@
   <div class="container about-inner">
     <div class="about-visual reveal">
       <div class="about-box">
-        <div class="about-initial">H.</div>
+        <img src="hopbili-linkedin-profile.png" alt="Hopbili" class="about-logo"/>
         <div class="about-tagline">"Practical systems that businesses actually use."</div>
         <div class="about-meta">
           <span>✦</span> Hopbili · hopbili.ca
@@ -1079,7 +1112,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#home" class="logo">Hop<span>bili</span></a>
+        <a href="#home" class="logo footer-logo"><img src="hopbili-icon-mark.svg" alt="Hopbili logo"/>Hop<span>bili</span></a>
         <p>Data-driven consulting for businesses that want smarter systems.</p>
       </div>
       <div class="footer-col">
