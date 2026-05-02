@@ -119,13 +119,19 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      white-space: nowrap;
     }
     .logo img {
       height: 32px;
       width: 32px;
       display: block;
+      flex-shrink: 0;
     }
-    .logo span { color: var(--teal); }
+    .logo-text {
+      display: inline-block;
+      color: var(--navy);
+    }
+    .logo-text span { color: var(--teal); }
     .nav-links {
       display: flex; align-items: center; gap: 36px;
       list-style: none;
@@ -644,6 +650,8 @@
       gap: 64px; margin-bottom: 48px;
     }
     .footer-brand .logo { color: var(--white); display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .footer-brand .logo .logo-text { color: var(--white); }
+    .footer-brand .logo .logo-text span { color: var(--teal-light); }
     .footer-brand .logo img {
       background: var(--white);
       border-radius: 6px;
@@ -717,7 +725,7 @@
 <!-- ── NAVIGATION ── -->
 <nav id="navbar" role="navigation" aria-label="Main navigation">
   <div class="container nav-inner">
-    <a href="#home" class="logo"><img src="hopbili-icon-mark.svg" alt="Hopbili logo"/>Hop<span>bili</span></a>
+    <a href="#home" class="logo"><img src="hopbili-icon-mark.svg" alt="Hopbili logo"/><span class="logo-text">Hop<span>bili</span></span></a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#services">Services</a></li>
@@ -1112,7 +1120,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#home" class="logo footer-logo"><img src="hopbili-icon-mark.svg" alt="Hopbili logo"/>Hop<span>bili</span></a>
+        <a href="#home" class="logo footer-logo"><img src="hopbili-icon-mark.svg" alt="Hopbili logo"/><span class="logo-text">Hop<span>bili</span></span></a>
         <p>Data-driven consulting for businesses that want smarter systems.</p>
       </div>
       <div class="footer-col">
